@@ -6,5 +6,5 @@ ENTRYPOINT ["/tini", "--"]
 
 COPY /.  .
 RUN npm install
-
+RUN sh colors.sh
 CMD ["node","app.js"]
