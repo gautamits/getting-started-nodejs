@@ -21,7 +21,7 @@ setInterval(function() {
     if (logIndex >= fakelog.length) {
         logIndex = 0;
     }
-    console.log(fakelog[logIndex].data.result.content)
+    console.log(logIndex, fakelog[logIndex].data.result.content)
     logIndex += 1;
 }, 10);
 
