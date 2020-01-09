@@ -23,7 +23,7 @@ setInterval(function() {
     }
     console.log(fakelog[logIndex].data.result.content)
     logIndex += 1;
-}, 100);
+}, 10000);
 
 function makeid(length) {
     var text = "";
