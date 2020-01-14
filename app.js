@@ -21,9 +21,9 @@ setInterval(function() {
     if (logIndex >= fakelog.length) {
         logIndex = 0;
     }
-    console.log(logIndex, fakelog[logIndex].data.result.content)
+    console.log(fakelog[logIndex].data.result.content)
     logIndex += 1;
-}, 10000);
+}, 100);
 function makeid(length) {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
