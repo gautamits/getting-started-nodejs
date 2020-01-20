@@ -16,17 +16,19 @@ app.get("/error", (req, res) => {
 app.get('/health', (req, res) => res.send({ "status": "OK", "time": new Date() }))
 var port = process.env.PORT || 8080;
 app.listen(port);
-
-setInterval(function() {
-    if (logIndex >= fakelog.length) {
-        logIndex = 0;
-    }
-    console.log(fakelog[logIndex].data.result.content)
-    logIndex += 1;
-}, 100);
+//const interval=setInterval(function(logIndex) {
+//    if (logIndex >= fakelog.length) {
+//	    clearInterval(interval)
+//   }
+//    console.log(fakelog[logIndex].data.result.content)
+//    logIndex += 1;
+//}, 100, logIndex);
+for(var i=0;i < fakelog.length; i++){
+	console.log(fakelog[i].data.result.content)
+}
 function makeid(length) {
     var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     for (var i = 0; i < length; i++)
         text += possible.charAt(Math.floor(Math.random() * possible.length));
