@@ -1,8 +1,11 @@
 var express = require('express');
 var app = express();
+const fs = require('fs')
 var cities = { cities: ["Amsterdam", "Berlin", "New York", "San Francisco", "Tokyo"] }
-const fakelog = require('./fakelog.json')
-var logIndex = 0
+fs.readFile('apache_logs','utf-8', (err, data)=>{
+	console.log(data)
+
+})
 
 app.get('/', function(req, res) {
     res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -23,9 +26,9 @@ app.listen(port);
 //    console.log(fakelog[logIndex].data.result.content)
 //    logIndex += 1;
 //}, 100, logIndex);
-for(var i=0;i < fakelog.length; i++){
-	console.log(fakelog[i].data.result.content)
-}
+//for(var i=0;i < fakelog.length; i++){
+//	console.log(fakelog[i])
+//}
 function makeid(length) {
     var text = "";
 	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
