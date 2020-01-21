@@ -2,8 +2,8 @@ var express = require('express');
 var app = express();
 const fs = require('fs')
 var cities = { cities: ["Amsterdam", "Berlin", "New York", "San Francisco", "Tokyo"] }
-fs.readFile('apache_logs','utf-8', (err, data)=>{
-	console.log(data)
+fs.readFile('apache_logs_shortened', 'utf-8', (err, data) => {
+    console.log(data)
 
 })
 
@@ -31,7 +31,7 @@ app.listen(port);
 //}
 function makeid(length) {
     var text = "";
-	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     for (var i = 0; i < length; i++)
         text += possible.charAt(Math.floor(Math.random() * possible.length));
