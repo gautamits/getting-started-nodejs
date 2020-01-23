@@ -1,6 +1,66 @@
 var express = require('express');
 var app = express();
 const faker = require('faker')
+const colors = require('colors')
+var textColors = [
+    "black",
+    "red",
+    "green",
+    "yellow",
+    "blue",
+    "magenta",
+    "cyan",
+    "white",
+    "gray",
+    "grey",
+    "brightRed",
+    "brightGreen",
+    "brightYellow",
+    "brightBlue",
+    "brightMagenta",
+    "brightCyan",
+    "brightWhite",
+]
+
+var backgroundColors = [
+    "bgBlack",
+    "bgRed",
+    "bgGreen",
+    "bgYellow",
+    "bgBlue",
+    "bgMagenta",
+    "bgCyan",
+    "bgWhite",
+    "bgGray",
+    "bgGrey",
+    "bgBrightRed",
+    "bgBrightGreen",
+    "bgBrightYellow",
+    "bgBrightBlue",
+    "bgBrightMagenta",
+    "bgBrightCyan",
+    "bgBrightWhite",
+]
+
+var styles = [
+    "reset",
+    "bold",
+    "dim",
+    "italic",
+    "underline",
+    "inverse",
+    "hidden",
+    "strikethrough"
+]
+
+var extras = [
+    "rainbow",
+    "zebra",
+    "america",
+    "trap",
+    "random",
+]
+
 
 var cities = { cities: ["Amsterdam", "Berlin", "New York", "San Francisco", "Tokyo"] }
 
@@ -17,7 +77,7 @@ app.get('/health', (req, res) => res.send({ "status": "OK", "time": new Date() }
 var port = process.env.PORT || 8080;
 app.listen(port);
 setInterval(function() {
-    console.log(faker.lorem.paragraphs())
+    console.log(faker.lorem.paragraph().random)
 }, 1000)
 
 function makeid(length) {
