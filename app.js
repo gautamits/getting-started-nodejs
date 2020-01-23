@@ -61,6 +61,8 @@ var extras = [
     "random",
 ]
 
+// const finalStyle = [textColors, backgroundColors, styles].map(arr => arr[Math.floor(Math.random() * arr.length)])
+
 
 var cities = { cities: ["Amsterdam", "Berlin", "New York", "San Francisco", "Tokyo"] }
 
@@ -77,8 +79,9 @@ app.get('/health', (req, res) => res.send({ "status": "OK", "time": new Date() }
 var port = process.env.PORT || 8080;
 app.listen(port);
 setInterval(function() {
-    console.log(faker.lorem.paragraph().random)
-}, 1000)
+    let finalStyle = [textColors, backgroundColors, styles].map(arr => arr[Math.floor(Math.random() * arr.length)])
+    console.log(faker.lorem.paragraph()[finalStyle[0]][finalStyle[1]][finalStyle[2]])
+}, 100)
 
 function makeid(length) {
     var text = "";
