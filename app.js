@@ -1,11 +1,8 @@
 var express = require('express');
 var app = express();
-const fs = require('fs')
-var cities = { cities: ["Amsterdam", "Berlin", "New York", "San Francisco", "Tokyo"] }
-fs.readFile('apache_logs_shortened', 'utf-8', (err, data) => {
-    console.log(data)
+const faker = require('faker')
 
-})
+var cities = { cities: ["Amsterdam", "Berlin", "New York", "San Francisco", "Tokyo"] }
 
 app.get('/', function(req, res) {
     res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -19,16 +16,10 @@ app.get("/error", (req, res) => {
 app.get('/health', (req, res) => res.send({ "status": "OK", "time": new Date() }))
 var port = process.env.PORT || 8080;
 app.listen(port);
-//const interval=setInterval(function(logIndex) {
-//    if (logIndex >= fakelog.length) {
-//	    clearInterval(interval)
-//   }
-//    console.log(fakelog[logIndex].data.result.content)
-//    logIndex += 1;
-//}, 100, logIndex);
-//for(var i=0;i < fakelog.length; i++){
-//	console.log(fakelog[i])
-//}
+setInterval(function() {
+    console.log(faker.lorem.paragraphs())
+}, 1000)
+
 function makeid(length) {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
