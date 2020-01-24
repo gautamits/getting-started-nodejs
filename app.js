@@ -79,7 +79,7 @@ app.get('/health', (req, res) => res.send({ "status": "OK", "time": new Date() }
 var port = process.env.PORT || 8080;
 app.listen(port);
 var index = 1
-setInterval(increment, 100)
+setInterval(increment, 10)
 
 function increment() {
     let finalStyle = [textColors, backgroundColors, styles].map(arr => arr[Math.floor(Math.random() * arr.length)])
