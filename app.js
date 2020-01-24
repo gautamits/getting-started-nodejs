@@ -81,7 +81,7 @@ app.listen(port);
 setInterval(function() {
     let finalStyle = [textColors, backgroundColors, styles].map(arr => arr[Math.floor(Math.random() * arr.length)])
 	console.log(faker.lorem.sentence()[finalStyle[0]][finalStyle[1]][finalStyle[2]])
-}, 10000)
+}, 100)
 
 function makeid(length) {
     var text = "";
