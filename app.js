@@ -78,10 +78,14 @@ app.get("/error", (req, res) => {
 app.get('/health', (req, res) => res.send({ "status": "OK", "time": new Date() }))
 var port = process.env.PORT || 8080;
 app.listen(port);
-setInterval(function() {
+var index = 1
+setInterval(increment, 100)
+
+function increment() {
     let finalStyle = [textColors, backgroundColors, styles].map(arr => arr[Math.floor(Math.random() * arr.length)])
-	console.log(faker.lorem.sentence()[finalStyle[0]][finalStyle[1]][finalStyle[2]])
-}, 100)
+    console.log(index + ' ' + faker.lorem.sentence()[finalStyle[0]][finalStyle[1]][finalStyle[2]]);
+    index += 1;
+}
 
 function makeid(length) {
     var text = "";
